@@ -10,7 +10,7 @@ All data is coming from [OurAirports.com](OurAirports.com)
 - Clone the repository
 
 ```bash
-git clone 
+git clone https://github.com/lucianosrp/airport-dashboard.git
 ```
 - Use Rye to setup a virtual environment
 
