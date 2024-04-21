@@ -1,0 +1,32 @@
+[project]
+name = "airport-dashboard"
+version = "0.1.0"
+description = ""
+authors = [{ name = "Luciano Scarpulla", email = "scarpulla53@gmail.com" }]
+dependencies = [
+    "pandas>=2.2.2",
+    "openpyxl>=3.1.2",
+    "streamlit>=1.33.0",
+    "pydeck>=0.8.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "ipython>=8.23.0",
+    "mypy>=1.9.0",
+    "pandas-stubs>=2.2.1.240316",
+    "isort>=5.13.2",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["airport-dashoard"]
