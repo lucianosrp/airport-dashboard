@@ -1,7 +1,6 @@
-import streamlit as st
-
-import pydeck as pdk
 import pandas as pd
+import pydeck as pdk
+import streamlit as st
 
 
 @st.cache_data
@@ -17,10 +16,9 @@ def get_runways():
 runways = get_runways()
 airports = get_airports()
 
-st.title("Airport Netork")
+st.title("Airport Network")
 
 airport_type = st.multiselect("Airport Type", airports.type.unique())
-
 
 rwy_length = st.slider(
     "Runway Length:",
@@ -42,8 +40,7 @@ selected_airports = airports.loc[
     (airports.id.isin(runways.loc[runways.length_ft <= rwy_length, "airport_ref"]))
     & (airports.elevation_ft <= elevation)
     & (airports.type.isin(airport_type))
-]
-
+    ]
 
 st.dataframe(selected_airports, hide_index=True)
 
@@ -56,7 +53,6 @@ airports_chart = pdk.Layer(
     get_fill_color=[255, 255, 200, 140],  # Set an RGBA value for fill
     pickable=True,
 )
-
 
 st.metric(
     label="Airports selected",
@@ -71,6 +67,5 @@ view_state = pdk.ViewState(
     latitude=mean_lat,
     zoom=3,
 )
-
 
 st.pydeck_chart(pdk.Deck(layers=[airports_chart], initial_view_state=view_state))
