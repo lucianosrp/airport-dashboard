@@ -20,7 +20,6 @@ countries = pd.read_csv(
 )
 
 st.title("Airport Network")
-st.title("Airport Network")
 
 airport_type = st.multiselect("Airport Type", airports.type.unique())
 
